@@ -16,9 +16,23 @@ def encode(password):
     return ''.join(new_pass)
 
 
-def decode():
-    #FIXME make the function lol
-    pass
+def decode(password):
+    '''decodes password by subtracting 3 from each digit'''
+    new_pass = ''
+    for i in password:
+        if i == str(0):
+            digit = int(7)
+            new_pass += str(digit)
+        elif i == str(1):
+            digit = int(8)
+            new_pass += str(digit)
+        elif i == str(2):
+            digit = int(9)
+            new_pass += str(digit)
+        else:
+            digit = int(i) - 3
+            new_pass += str(digit)
+    return str(str(new_pass))
 
 
 
@@ -28,10 +42,11 @@ def main():
         option = int(input('Please enter an option: '))
         if option == 1:
             password = input('Please enter your password to encode: ')
-            password = encode(password)
+            print(f'Your password has been encoded and stored!')
+            new_pass = encode(password)
             print(f'Your password has been encoded and stored!')
         elif option == 2:
-            # FIXME run decode function
+            print(f'The encoded password is {encode(password)}, and the original password is {(decode(new_pass))}.')
             pass
         elif option == 3:
             break
